@@ -20,9 +20,12 @@
 
 @property (nonatomic, strong) UIImageView *bgView;
 
+@property (nonatomic, strong) UIImageView *bgSelectedView;
+
 - (void) setTitleText : (NSString *) titleText;
 - (void) setSubTitleText : (NSString *) subtitleText;
 - (void) setIconImageFile : (UIImage *) iconImageName;
 - (void) setBandImageFile : (UIImage *) bandImageName;
 - (void) setTableCellBG : (NSString *) bgName;
+- (void) setTableCellSelectedBG : (NSString *) bgName;
 @end

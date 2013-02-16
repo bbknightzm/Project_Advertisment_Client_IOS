@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCNavigationBar.h"
+//#import "GCNavigationBar.h"
 
 @interface UserCenter : UIViewController
 
-@property (strong, nonatomic) IBOutlet GCNavigationBar *naviBar;
+//@property (strong, nonatomic) IBOutlet GCNavigationBar *naviBar;
 
 @end

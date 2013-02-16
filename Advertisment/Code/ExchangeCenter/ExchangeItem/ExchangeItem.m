@@ -35,6 +35,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.view setBackgroundColor: [UIColor colorWithPatternImage: [UIImage imageNamed: @"BG"]]];
+    self.iconView.image = [UIImage imageNamed:@"ExchangeItem"];
+    self.detailBG.image = [UIImage imageNamed:@"ExchangeItemBG"];
+    [self.btnConfirm setImage:[UIImage imageNamed:@"ExchangeItemOK"] forState:UIControlStateNormal];
+    [self.btnConfirm addTarget:self action:@selector(exchangeConfirm:) forControlEvents:UIControlEventTouchDown];
+     self.navigationItem.title = @"兑换物品";
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,4 +49,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)exchangeConfirm:(id)sender
+{
+    NSLog(@"confirm");
+}
 @end

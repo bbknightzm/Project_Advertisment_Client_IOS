@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCNavigationBar.h"
+//#import "GCNavigationBar.h"
 
 @interface ActivityCenter : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) IBOutlet GCNavigationBar *naviBar;
+//@property (strong, nonatomic) IBOutlet GCNavigationBar *naviBar;
 
 @property (strong, nonatomic) IBOutlet UITableView *tbView;
 

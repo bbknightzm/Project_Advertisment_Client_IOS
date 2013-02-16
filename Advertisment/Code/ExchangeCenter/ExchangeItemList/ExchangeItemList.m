@@ -1,24 +1,23 @@
 //
-//  ActivityCenter.m
-//  hbnlClient
+//  ExchangeItemList.m
+//  Advertisment
 //
-//  Created by bb on 1/21/13.
+//  Created by bb on 2/15/13.
 //  Copyright (c) 2013 bb. All rights reserved.
 //
 
-#import "ActivityCenter.h"
-#import "ExchangeItemTableCell.h"
+#import "ExchangeItemList.h"
 #import "ExchangeItemListCell.h"
 #import "ExchangeItem.h"
-#import "immobViewController.h"
 
-@interface ActivityCenter ()
+#import "ExchangeItemTableCell.h"
+
+@interface ExchangeItemList ()
 
 @end
 
-@implementation ActivityCenter
+@implementation ExchangeItemList
 
-//@synthesize naviBar = _naviBar;
 @synthesize tbView = _tbView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,9 +34,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
-//    [self.naviBar setNavigationBarBG:[UIImage imageNamed:@"NavigationBar"]];
+    //    [self.naviBar setNavigationBarBG:[UIImage imageNamed:@"NavigationBar"]];
     [self.view setBackgroundColor: [UIColor colorWithPatternImage: [UIImage imageNamed: @"BG"]]];
-    self.navigationItem.title = @"赚分中心";
+    self.navigationItem.title = @"物品列表";
+    UINib *nib = [UINib nibWithNibName:@"ExchangeItemListCell" bundle:nil];
+    [self.tbView registerNib:nib forCellReuseIdentifier:@"ExchangeItemListIdentifier"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,27 +46,26 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (1)
+    if (0)
     {
-        static NSString *CustomCellIdentifier = @"ExchangeItemIdentifier";
+        NSString *CustomCellIdentifier = @"ExchangeItemIdentifier";
         
-        static BOOL nibsRegistered = NO;
+/*        static BOOL nibsRegistered = NO;
         if (!nibsRegistered) {
             UINib *nib = [UINib nibWithNibName:@"ExchangeItemTableCell" bundle:nil];
             [self.tbView registerNib:nib forCellReuseIdentifier:CustomCellIdentifier];
-            nibsRegistered = YES;
-        }
+//            nibsRegistered = YES;
+        }*/
         
         ExchangeItemTableCell *cell = [self.tbView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
         
-        if (cell)
+        if (cell != nil)
         {
             //        for (int i = 0; i < 1; i++)
             {
@@ -92,43 +92,42 @@
                         break;
                 }
             }
+            [cell setTableCellBG:@"TableCellBG"];
         }
-        [cell setTableCellBG:@"TableCellBG"];
         return cell;
     }
     else
     {
-        static NSString *CustomCellIdentifier = @"ExchangeItemListIdentifier";
-        
-        static BOOL nibsRegistered = NO;
-        if (!nibsRegistered) {
-            UINib *nib = [UINib nibWithNibName:@"ExchangeItemListCell" bundle:nil];
-            [self.tbView registerNib:nib forCellReuseIdentifier:CustomCellIdentifier];
+    NSString *CustomCellIdentifier = @"ExchangeItemListIdentifier";
+/*    static BOOL nibsRegistered = NO;
+    if (!nibsRegistered)
+    {
+        UINib *nib = [UINib nibWithNibName:@"ExchangeItemListCell" bundle:nil];
+        [self.tbView registerNib:nib forCellReuseIdentifier:CustomCellIdentifier];
             nibsRegistered = YES;
-        }
+    }*/
         
-        ExchangeItemListCell *cell = [self.tbView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
+    ExchangeItemListCell *cell = [self.tbView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
         
-        if (cell)
+    if (cell != nil)
+    {
+        switch ([indexPath row])
         {
-            //        for (int i = 0; i < 1; i++)
-            {
-                switch ([indexPath row]) {
-                    case 0:
-                        [cell setLeftBtnBG:@"ListCell01"];
-                        [cell setRightBtnBG:@"ListCell02"];
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    default:
-                        break;
-                }
-            }
+            case 0:
+                [cell setLeftBtnBG:@"ListCell01"];
+                [cell setRightBtnBG:@"ListCell02"];
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            default:
+                break;
         }
         [cell setTableCellBG:@"TableCellBG"];
-        return cell;
+        [cell setItemCallBack:self];
+    }
+    return cell;
     }
 }
 
@@ -150,7 +149,6 @@
             break;
         case 1:
         {
-            childController = [[immobViewController alloc] init];
         }
             break;
         case 2:
@@ -165,14 +163,14 @@
         [self.navigationController pushViewController:childController animated:YES];
     }
     /*
-    ExchangeItem *childController = [[ExchangeItem alloc]
-                                     initWithNibName:@"ExchangeItem" bundle:nil];
-    //    NSUInteger row = [indexPath row];
-    //    NSString *detailMessage = [[NSString alloc]
-    //                               initWithFormat:@"你选择了电影：%@.", row];
-    //    childController.title = detailMessage;
-    [self.navigationController pushViewController:childController animated:YES];
-    */
+     ExchangeItem *childController = [[ExchangeItem alloc]
+     initWithNibName:@"ExchangeItem" bundle:nil];
+     //    NSUInteger row = [indexPath row];
+     //    NSString *detailMessage = [[NSString alloc]
+     //                               initWithFormat:@"你选择了电影：%@.", row];
+     //    childController.title = detailMessage;
+     [self.navigationController pushViewController:childController animated:YES];
+     */
     return nil;
 }
 
@@ -182,19 +180,18 @@
     switch ([indexPath row])
     {
         case 0:
-            {
-                childController = [[ExchangeItem alloc]
-                                                 initWithNibName:@"ExchangeItem" bundle:nil];
-            }
+        {
+            childController = [[ExchangeItem alloc]
+                               initWithNibName:@"ExchangeItem" bundle:nil];
+        }
             break;
         case 1:
-            {
-                childController = [[immobViewController alloc] init];
-            }
+        {
+        }
             break;
         case 2:
-            {
-            }
+        {
+        }
             break;
         default:
             break;
@@ -207,5 +204,17 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
+}
+
+- (void) itemCallBack : (id) sender
+{
+    NSLog(@"item call back");
+    UIViewController *childController = nil;
+    childController = [[ExchangeItem alloc]
+    initWithNibName:@"ExchangeItem" bundle:nil];
+    if (childController)
+    {
+        [self.navigationController pushViewController:childController animated:YES];
+    }
 }
 @end

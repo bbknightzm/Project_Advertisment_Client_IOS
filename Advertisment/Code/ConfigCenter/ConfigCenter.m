@@ -14,7 +14,7 @@
 
 @implementation ConfigCenter
 
-@synthesize naviBar = _naviBar;
+//@synthesize naviBar = _naviBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +29,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.naviBar setNavigationBarBG:[UIImage imageNamed:@"NavigationBar"]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.title = @"配置中心";
     [self.view setBackgroundColor: [UIColor colorWithPatternImage: [UIImage imageNamed: @"BG"]]];
 }
 

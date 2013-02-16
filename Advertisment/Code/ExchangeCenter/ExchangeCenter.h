@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCNavigationBar.h"
+//#import "GCNavigationBar.h"
 
 @interface ExchangeCenter : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
@@ -15,7 +15,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *userInfoView;
 
-@property (strong, nonatomic) IBOutlet GCNavigationBar *naviBar;
+//@property (strong, nonatomic) IBOutlet GCNavigationBar *naviBar;
 
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 

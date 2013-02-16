@@ -14,14 +14,15 @@
 @synthesize subTitle = _subTitle;
 @synthesize iconImage = _iconImage;
 @synthesize bandImage = _bandImage;
-//@synthesize bgView = _bgView;
+@synthesize bgView = _bgView;
+@synthesize bgSelectedView = _bgSelectedView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        [self setBackgroundColor: [UIColor colorWithPatternImage: [UIImage imageNamed: @"TableCellBG"]]];
+//        [self setBackgroundColor: [UIColor colorWithPatternImage: [UIImage imageNamed: @"TableCellBG"]]];
     }
     return self;
 }
@@ -38,12 +39,19 @@
     if (self.bgView == nil)
     {
         CGRect frame = self.frame;
-//        UIImageView *abc = [[UIImageView alloc] initWithFrame:frame];
         self.bgView = [[UIImageView alloc] initWithFrame:frame];
         self.bgView.image = [UIImage imageNamed:bgName];
-//        abc.image = [UIImage imageNamed:bgName];
         [self setBackgroundView: self.bgView];
-        //[self setNeedsDisplay];
+    }
+}
+
+- (void) setTableCellSelectedBG : (NSString *) bgName
+{
+    if (self.bgSelectedView == nil) {
+        CGRect frame = self.frame;
+        self.bgSelectedView = [[UIImageView alloc] initWithFrame:frame];
+        self.bgSelectedView.image = [UIImage imageNamed:bgName];
+        [self setSelectedBackgroundView:self.bgSelectedView];
     }
 }
 

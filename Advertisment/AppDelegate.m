@@ -24,7 +24,14 @@
 	UserCenter *userCenter = [[UserCenter alloc] initWithNibName:@"UserCenter" bundle:nil];
 	MessageCenter *messageCenter = [[MessageCenter alloc] initWithNibName:@"MessageCenter" bundle:nil];
 	ConfigCenter *configCenter = [[ConfigCenter alloc] initWithNibName:@"ConfigCenter" bundle:nil];
-	NSArray *ctrlArr = [NSArray arrayWithObjects:exchangeCenter,activityCenter,userCenter,messageCenter,configCenter,nil];
+    UINavigationController *nvEC = [[UINavigationController alloc] initWithRootViewController:exchangeCenter];
+    UINavigationController *nvAC = [[UINavigationController alloc] initWithRootViewController:activityCenter];
+    UINavigationController *nvUC = [[UINavigationController alloc] initWithRootViewController:userCenter];
+    UINavigationController *nvMC = [[UINavigationController alloc] initWithRootViewController:messageCenter];
+    UINavigationController *nvCC = [[UINavigationController alloc] initWithRootViewController:configCenter];
+    
+//	NSArray *ctrlArr = [NSArray arrayWithObjects:exchangeCenter,activityCenter,userCenter,messageCenter,configCenter,nil];
+	NSArray *ctrlArr = [NSArray arrayWithObjects:nvEC,nvAC,nvUC,nvMC,nvCC,nil];
     
 	NSMutableDictionary *imgDic = [NSMutableDictionary dictionaryWithCapacity:3];
 	[imgDic setObject:[UIImage imageNamed:@"1off.png"] forKey:@"Default"];

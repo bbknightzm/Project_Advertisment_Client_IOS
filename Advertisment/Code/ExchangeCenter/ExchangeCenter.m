@@ -6,8 +6,9 @@
 //  Copyright (c) 2013 bb. All rights reserved.
 //
 
-#import "ExchangeItem.h"
+//#import "ExchangeItem.h"
 #import "ExchangeCenter.h"
+#import "ExchangeItemList.h"
 #import "ExchangeItemTableCell/ExchangeItemTableCell.h"
 
 @interface ExchangeCenter ()
@@ -18,7 +19,7 @@
 
 @synthesize userInfoView = _userInfoView;
 @synthesize adScrollView = _adScrollView;
-@synthesize naviBar = _naviBar;
+//@synthesize naviBar = _naviBar;
 @synthesize tableView = _tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,7 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.naviBar setNavigationBarBG:[UIImage imageNamed:@"NavigationBar"]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.title = @"兑换中心";
     [self.view setBackgroundColor: [UIColor colorWithPatternImage: [UIImage imageNamed: @"BG"]]];
     CGRect rect1, rect2, rect3, rect4;
     if (self.userInfoView != nil) {
@@ -72,45 +74,71 @@
     
     ExchangeItemTableCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
     
-    if (cell)
+    if (cell != nil)
     {
-        //        for (int i = 0; i < 1; i++)
+        switch ([indexPath row])
         {
-            switch ([indexPath row]) {
-                case 0:
-                    [cell setTitleText:@"QQ币兑换"];
-                    [cell setSubTitleText:@"subtitle : qq money title."];
-                    [cell setIconImageFile:[UIImage imageNamed: @"TableCell01"]];
-                    [cell setBandImageFile:[UIImage imageNamed: @"Band1"]];
-                    break;
-                case 1:
-                    [cell setTitleText:@"手机充值卡"];
-                    [cell setSubTitleText:@"subtitle : mobile phone card."];
-                    [cell setIconImageFile:[UIImage imageNamed: @"TableCell02"]];
-                    [cell setBandImageFile:[UIImage imageNamed: @"Band1"]];
-                    break;
-                case 2:
-                    [cell setTitleText:@"实物礼品"];
-                    [cell setSubTitleText:@"subtitle : presents for exchange."];
-                    [cell setIconImageFile:[UIImage imageNamed: @"TableCell03"]];
-                    [cell setBandImageFile:[UIImage imageNamed: @"Band1"]];
-                    break;
-                default:
-                    break;
-            }
+            case 0:
+                [cell setTitleText:@"QQ币兑换"];
+                [cell setSubTitleText:@"subtitle : qq money title."];
+                [cell setIconImageFile:[UIImage imageNamed: @"TableCell01"]];
+                [cell setBandImageFile:[UIImage imageNamed: @"Band1"]];
+                break;
+            case 1:
+                [cell setTitleText:@"手机充值卡"];
+                [cell setSubTitleText:@"subtitle : mobile phone card."];
+                [cell setIconImageFile:[UIImage imageNamed: @"TableCell02"]];
+                [cell setBandImageFile:[UIImage imageNamed: @"Band1"]];
+                break;
+            case 2:
+                [cell setTitleText:@"实物礼品"];
+                [cell setSubTitleText:@"subtitle : presents for exchange."];
+                [cell setIconImageFile:[UIImage imageNamed: @"TableCell03"]];
+                [cell setBandImageFile:[UIImage imageNamed: @"Band1"]];
+                break;
+            default:
+                break;
         }
+        [cell setTableCellBG:@"TableCellBG"];
+        [cell setTableCellSelectedBG:@"TableCellSelectedBG"];
     }
-    [cell setTableCellBG:@"TableCellBG"];
+    while (cell == nil) {
+        NSLog(@"cell is nil.");
+    }
     return cell;
 }
 
 #pragma mark Table Delegate Methods
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 90.0;
+    return 83.0;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIViewController *childController = nil;
+    switch ([indexPath row])
+    {
+        case 0:
+        {
+            childController = [[ExchangeItemList alloc]
+                               initWithNibName:@"ExchangeItemList" bundle:nil];
+        }
+            break;
+        case 1:
+        {
+        }
+            break;
+        case 2:
+        {
+        }
+            break;
+        default:
+            break;
+    }
+    if (childController)
+    {
+        [self.navigationController pushViewController:childController animated:YES];
+    }
     return nil;
 }
 @end

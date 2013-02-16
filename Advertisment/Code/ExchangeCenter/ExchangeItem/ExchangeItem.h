@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExchangeItem : UINavigationController
+@interface ExchangeItem : UIViewController
 
 @property (nonatomic, strong) IBOutlet UIButton *btnConfirm;
 @property (nonatomic, strong) IBOutlet UIImageView *iconView;
