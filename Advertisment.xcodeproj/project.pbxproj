@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		18581C6016CF609300BA3427 /* TableCellSelectedBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18581C5F16CF609300BA3427 /* TableCellSelectedBG@2x.png */; };
+		18581C6416D0D61F00BA3427 /* AdvertisementScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18581C6316D0D61F00BA3427 /* AdvertisementScrollView.m */; };
+		18581C6916D3317400BA3427 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18581C6716D3317400BA3427 /* UserInfoViewController.m */; };
+		18581C6A16D3317400BA3427 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18581C6816D3317400BA3427 /* UserInfoViewController.xib */; };
 		1858A5A516CE3F9900542E28 /* ExchangeItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858A5A316CE3F9900542E28 /* ExchangeItemList.m */; };
 		1858A5A616CE3F9900542E28 /* ExchangeItemList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858A5A416CE3F9900542E28 /* ExchangeItemList.xib */; };
 		1858A5AA16CE40B800542E28 /* ExchangeItemListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858A5A916CE40B800542E28 /* ExchangeItemListCell.m */; };
@@ -99,6 +102,11 @@
 
 /* Begin PBXFileReference section */
 		18581C5F16CF609300BA3427 /* TableCellSelectedBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TableCellSelectedBG@2x.png"; sourceTree = "<group>"; };
+		18581C6216D0D61F00BA3427 /* AdvertisementScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisementScrollView.h; sourceTree = "<group>"; };
+		18581C6316D0D61F00BA3427 /* AdvertisementScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertisementScrollView.m; sourceTree = "<group>"; };
+		18581C6616D3317400BA3427 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		18581C6716D3317400BA3427 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		18581C6816D3317400BA3427 /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		1858A5A216CE3F9900542E28 /* ExchangeItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeItemList.h; sourceTree = "<group>"; };
 		1858A5A316CE3F9900542E28 /* ExchangeItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeItemList.m; sourceTree = "<group>"; };
 		1858A5A416CE3F9900542E28 /* ExchangeItemList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExchangeItemList.xib; sourceTree = "<group>"; };
@@ -234,6 +242,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18581C6116D0D57900BA3427 /* AdScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				18581C6216D0D61F00BA3427 /* AdvertisementScrollView.h */,
+				18581C6316D0D61F00BA3427 /* AdvertisementScrollView.m */,
+			);
+			path = AdScrollView;
+			sourceTree = "<group>";
+		};
+		18581C6516D3312500BA3427 /* UserInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				18581C6616D3317400BA3427 /* UserInfoViewController.h */,
+				18581C6716D3317400BA3427 /* UserInfoViewController.m */,
+				18581C6816D3317400BA3427 /* UserInfoViewController.xib */,
+			);
+			path = UserInfoView;
+			sourceTree = "<group>";
+		};
 		1858A5A116CE3F0A00542E28 /* ExchangeItemList */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +427,8 @@
 		18DDAA9F16B22084004967A9 /* ExchangeCenter */ = {
 			isa = PBXGroup;
 			children = (
+				18581C6516D3312500BA3427 /* UserInfoView */,
+				18581C6116D0D57900BA3427 /* AdScrollView */,
 				1858A5A716CE407300542E28 /* ExchangeItemListCell */,
 				1858A5A116CE3F0A00542E28 /* ExchangeItemList */,
 				18DDAAF416B4EB2A004967A9 /* ExchangeItem */,
@@ -631,6 +660,7 @@
 				18FEA73816CF35FD001E10CF /* ListCell01@2x.png in Resources */,
 				18FEA73916CF35FD001E10CF /* ListCell02@2x.png in Resources */,
 				18581C6016CF609300BA3427 /* TableCellSelectedBG@2x.png in Resources */,
+				18581C6A16D3317400BA3427 /* UserInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +709,8 @@
 				18761BAF16C95E920044ACC8 /* immobViewController.m in Sources */,
 				1858A5A516CE3F9900542E28 /* ExchangeItemList.m in Sources */,
 				1858A5AA16CE40B800542E28 /* ExchangeItemListCell.m in Sources */,
+				18581C6416D0D61F00BA3427 /* AdvertisementScrollView.m in Sources */,
+				18581C6916D3317400BA3427 /* UserInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

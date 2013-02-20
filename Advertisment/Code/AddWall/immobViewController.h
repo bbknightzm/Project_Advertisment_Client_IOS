@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <immobSDK/immobView.h>
 
-@interface immobViewController : UIViewController<immobViewDelegate>
+@interface immobViewController : immobView<immobViewDelegate>// UIViewController<immobViewDelegate>
 
 /*
 enum ENUM_WALL_CO : int
@@ -23,5 +23,5 @@ enum ENUM_WALL_CO : int
 @property (nonatomic, strong) UIView *adView_AdWall;
 */
 
-@property (nonatomic, strong) immobView *adwallview;
+//@property (nonatomic, strong) immobView *adwallview;
 @end

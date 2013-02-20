@@ -11,6 +11,7 @@
 #import "ExchangeItemListCell.h"
 #import "ExchangeItem.h"
 #import "immobViewController.h"
+#import "GCTabBarController.h"
 
 @interface ActivityCenter ()
 
@@ -20,6 +21,7 @@
 
 //@synthesize naviBar = _naviBar;
 @synthesize tbView = _tbView;
+@synthesize immobAdView = _immobAdView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,9 +37,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
-//    [self.naviBar setNavigationBarBG:[UIImage imageNamed:@"NavigationBar"]];
     [self.view setBackgroundColor: [UIColor colorWithPatternImage: [UIImage imageNamed: @"BG"]]];
     self.navigationItem.title = @"赚分中心";
+    
+    self.immobAdView = [[immobViewController alloc] initWithAdUnitID:@"d2b0c4296dc009ddc00d10da9c4cf83e"];
+    self.immobAdView.delegate = self;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,6 +74,7 @@
         {
             //        for (int i = 0; i < 1; i++)
             {
+                
                 switch ([indexPath row]) {
                     case 0:
                         [cell setTitleText:@"QQ币兑换"];
@@ -146,11 +152,15 @@
         {
             childController = [[ExchangeItem alloc]
                                initWithNibName:@"ExchangeItem" bundle:nil];
+            if (childController)
+            {
+                [self.navigationController pushViewController:childController animated:YES];
+            }
         }
             break;
         case 1:
         {
-            childController = [[immobViewController alloc] init];
+            [self.immobAdView immobViewRequest];
         }
             break;
         case 2:
@@ -159,10 +169,6 @@
             break;
         default:
             break;
-    }
-    if (childController)
-    {
-        [self.navigationController pushViewController:childController animated:YES];
     }
     /*
     ExchangeItem *childController = [[ExchangeItem alloc]
@@ -176,36 +182,31 @@
     return nil;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UIViewController *childController = nil;
-    switch ([indexPath row])
-    {
-        case 0:
-            {
-                childController = [[ExchangeItem alloc]
-                                                 initWithNibName:@"ExchangeItem" bundle:nil];
-            }
-            break;
-        case 1:
-            {
-                childController = [[immobViewController alloc] init];
-            }
-            break;
-        case 2:
-            {
-            }
-            break;
-        default:
-            break;
-    }
-    if (childController)
-    {
-        [self.navigationController pushViewController:childController animated:YES];
-    }
-}
-
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
 }
+
+// immob
+- (UIViewController *)immobViewController
+{
+    return self;
+}
+
+- (void) immobViewDidReceiveAd
+{
+    [self.immobAdView immobViewDisplay];
+    [self.parentViewController.view addSubview:self.immobAdView];
+    GCTabBarController *tab = self.parentViewController.gcTabBarController;
+    [tab hidesTabBar:YES animated:YES];
+//    [self parentViewController] view
+    NSLog(@"immobView did received");
+}
+
+- (void) onDismissScreen:(immobView *)immobView
+{
+    GCTabBarController *tab = self.parentViewController.gcTabBarController;
+    [tab hidesTabBar:NO animated:YES];
+    NSLog(@"immobView dismiss screen");
+}
+
 @end

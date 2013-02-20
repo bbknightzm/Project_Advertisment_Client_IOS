@@ -17,7 +17,7 @@
 /*
 @synthesize adView_AdWall = _adView_AdWall;
 */
-@synthesize adwallview;// = _adwallview;
+//@synthesize adwallview;// = _adwallview;
 /*
 - (id)initWithType : (enum ENUM_WALL_CO)wallType
 {
@@ -26,7 +26,7 @@
         // Custom initialization
         switch (wallType) {
             case ENUM_IMMOB:
-//                self.adView_AdWall = [[immobView alloc] initWithAdUnitID:@"d2b0c4296dc009ddc00d10da9c4cf83e"];
+                self.adView_AdWall = [[immobView alloc] initWithAdUnitID:@"d2b0c4296dc009ddc00d10da9c4cf83e"];
 //                ((immobView*)self.adView_AdWall).delegate = self;
 
                 break;
@@ -47,29 +47,32 @@
     return self;
 }
 */
-
+/*
 - (UIViewController *)immobViewController{
     
     return self;
-}
+}*/
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [self initWithAdUnitID:@"d2b0c4296dc009ddc00d10da9c4cf83e"];
+    self.delegate = self;
+    [self immobViewRequest];
+//    [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    adwallview=[[immobView alloc] initWithAdUnitID:@"d2b0c4296dc009ddc00d10da9c4cf83e"];
-    adwallview.delegate=self;
-    if (adwallview) {
-        [adwallview immobViewRequest];
-        [self.view addSubview:adwallview];
-        [adwallview immobViewDisplay];
-    }
+//    adwallview=[[immobView alloc] initWithAdUnitID:@"d2b0c4296dc009ddc00d10da9c4cf83e"];
+//    adwallview.delegate=self;
+//    if (adwallview) {
+//        [adwallview immobViewRequest];
+//        [self.view addSubview:adwallview];
+//        [adwallview immobViewDisplay];
+//    }
 }
 
 - (void)viewDidUnload
 {
 //    [self setAdwallb:nil];
-    [super viewDidUnload];
+    [self viewDidUnload];
     // Release any retained subviews of the main view.
     
 }
@@ -77,12 +80,15 @@
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
+    [self didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (void) immobViewDidReceiveAd
 {
+    [self immobViewDisplay];
+//    [adwallview immobViewDisplay];
+    NSLog(@"immobView did received");
 }
 
 @end

@@ -59,7 +59,8 @@
     rootview = [rootview initWithViewControllers:ctrlArr imageArray:imgArr];
 	[rootview setTabBarTransparent:YES];
 	[self.window addSubview:rootview.view];//rootview.view];
-    [self.window makeKeyAndVisible];    return YES;
+    [self.window makeKeyAndVisible];
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

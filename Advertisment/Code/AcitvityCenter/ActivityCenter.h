@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <immobSDK/immobView.h>
 //#import "GCNavigationBar.h"
 
-@interface ActivityCenter : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface ActivityCenter : UIViewController<UITableViewDelegate, UITableViewDataSource, immobViewDelegate>
 
 //@property (strong, nonatomic) IBOutlet GCNavigationBar *naviBar;
 
 @property (strong, nonatomic) IBOutlet UITableView *tbView;
+
+@property (strong, nonatomic) IBOutlet immobView *immobAdView;
 
 @end
