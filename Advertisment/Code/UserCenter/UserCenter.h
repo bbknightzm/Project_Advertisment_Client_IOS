@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 //#import "GCNavigationBar.h"
 
-@interface UserCenter : UIViewController
+@interface UserCenter : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-//@property (strong, nonatomic) IBOutlet GCNavigationBar *naviBar;
+@property (strong, nonatomic) IBOutlet UIImageView *leftLeaf;
+
+@property (strong, nonatomic) IBOutlet UIImageView *rightLeaf;
+
+@property (strong, nonatomic) IBOutlet UIView *innerView;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

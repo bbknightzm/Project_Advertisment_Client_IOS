@@ -12,7 +12,9 @@
 
 @interface ActivityCenter : UIViewController<UITableViewDelegate, UITableViewDataSource, immobViewDelegate>
 
-//@property (strong, nonatomic) IBOutlet GCNavigationBar *naviBar;
+@property (strong, nonatomic) IBOutlet UIImageView *leftLeaf;
+
+@property (strong, nonatomic) IBOutlet UIImageView *rightLeaf;
 
 @property (strong, nonatomic) IBOutlet UITableView *tbView;
 

@@ -10,6 +10,10 @@
 
 @interface ExchangeItemList : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UIImageView *leftLeaf;
+
+@property (strong, nonatomic) IBOutlet UIImageView *rightLeaf;
+
 @property (strong, nonatomic) IBOutlet UITableView *tbView;
 
 @end

@@ -19,7 +19,8 @@
 
 @implementation ActivityCenter
 
-//@synthesize naviBar = _naviBar;
+@synthesize leftLeaf = _leftLeaf;
+@synthesize rightLeaf = _rightLeaf;
 @synthesize tbView = _tbView;
 @synthesize immobAdView = _immobAdView;
 
@@ -40,6 +41,13 @@
     [self.view setBackgroundColor: [UIColor colorWithPatternImage: [UIImage imageNamed: @"BG"]]];
     self.navigationItem.title = @"赚分中心";
     
+    if (self.leftLeaf) {
+        self.leftLeaf.image = [UIImage imageNamed: @"LeftLeaf"];
+    }
+    if (self.rightLeaf) {
+        self.rightLeaf.image = [UIImage imageNamed: @"RightLeaf"];
+    }
+
     self.immobAdView = [[immobViewController alloc] initWithAdUnitID:@"d2b0c4296dc009ddc00d10da9c4cf83e"];
     self.immobAdView.delegate = self;
 

@@ -18,6 +18,8 @@
 
 @implementation ExchangeItemList
 
+@synthesize leftLeaf = _leftLeaf;
+@synthesize rightLeaf = _rightLeaf;
 @synthesize tbView = _tbView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,6 +41,12 @@
     self.navigationItem.title = @"物品列表";
     UINib *nib = [UINib nibWithNibName:@"ExchangeItemListCell" bundle:nil];
     [self.tbView registerNib:nib forCellReuseIdentifier:@"ExchangeItemListIdentifier"];
+    if (self.leftLeaf) {
+        self.leftLeaf.image = [UIImage imageNamed: @"LeftLeaf"];
+    }
+    if (self.rightLeaf) {
+        self.rightLeaf.image = [UIImage imageNamed: @"RightLeaf"];
+    }
 }
 
 - (void)didReceiveMemoryWarning

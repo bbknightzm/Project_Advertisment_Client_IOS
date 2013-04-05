@@ -10,6 +10,10 @@
 
 @interface ExchangeItem : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *leftLeaf;
+
+@property (strong, nonatomic) IBOutlet UIImageView *rightLeaf;
+
 @property (nonatomic, strong) IBOutlet UIButton *btnConfirm;
 @property (nonatomic, strong) IBOutlet UIImageView *iconView;
 @property (nonatomic, strong) IBOutlet UIImageView *detailBG;

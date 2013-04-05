@@ -20,6 +20,8 @@
 
 @implementation ExchangeCenter
 
+@synthesize leftLeaf = _leftLeaf;
+@synthesize rightLeaf = _rightLeaf;
 @synthesize userInfoView = _userInfoView;
 @synthesize adImageView = _adImageView;
 @synthesize adScrollView = _adScrollView;
@@ -54,6 +56,12 @@
         scrollFrame.origin.y = 0;
         AdvertisementScrollView *view = [[AdvertisementScrollView alloc] initWithFrame:scrollFrame];
         [self.adView addSubview:view];
+    }
+    if (self.leftLeaf) {
+        self.leftLeaf.image = [UIImage imageNamed: @"LeftLeaf"];
+    }
+    if (self.rightLeaf) {
+        self.rightLeaf.image = [UIImage imageNamed: @"RightLeaf"];
     }
     if (self.adScrollView != nil) {
 //        [self.adScrollView setBackgroundColor: [UIColor colorWithPatternImage: [UIImage imageNamed: @"Adtest"]]];

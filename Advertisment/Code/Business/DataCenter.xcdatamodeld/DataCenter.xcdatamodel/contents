@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ActivityEntity" representedClassName="Activity" syncable="YES"/>
+    <entity name="ItemEntity" representedClassName="Item" syncable="YES"/>
+    <entity name="UserEntity" representedClassName="User" syncable="YES"/>
+    <elements>
+        <element name="UserEntity" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="ActivityEntity" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="ItemEntity" positionX="160" positionY="192" width="128" height="45"/>
+    </elements>
+</model>

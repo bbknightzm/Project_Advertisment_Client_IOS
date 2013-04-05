@@ -95,7 +95,6 @@
 								<string key="NSFrame">{{122, 44}, {178, 15}}</string>
 								<reference key="NSSuperview" ref="985641720"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -153,6 +152,7 @@
 				<reference key="NSNextKeyView" ref="985641720"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<int key="IBUISelectionStyle">2</int>
 				<reference key="IBUIContentView" ref="985641720"/>
 				<string key="IBUIReuseIdentifier">ExchangeItemIdentifier</string>
 				<real value="83" key="IBUIRowHeight"/>

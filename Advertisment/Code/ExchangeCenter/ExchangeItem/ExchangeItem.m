@@ -14,6 +14,8 @@
 
 @implementation ExchangeItem
 
+@synthesize leftLeaf = _leftLeaf;
+@synthesize rightLeaf = _rightLeaf;
 @synthesize btnConfirm = _btnConfirm;
 @synthesize iconView = _iconView;
 @synthesize detailBG = _detailBG;
@@ -41,6 +43,12 @@
     [self.btnConfirm setImage:[UIImage imageNamed:@"ExchangeItemOK"] forState:UIControlStateNormal];
     [self.btnConfirm addTarget:self action:@selector(exchangeConfirm:) forControlEvents:UIControlEventTouchDown];
      self.navigationItem.title = @"兑换物品";
+    if (self.leftLeaf) {
+        self.leftLeaf.image = [UIImage imageNamed: @"LeftLeaf"];
+    }
+    if (self.rightLeaf) {
+        self.rightLeaf.image = [UIImage imageNamed: @"RightLeaf"];
+    }
 }
 
 - (void)didReceiveMemoryWarning

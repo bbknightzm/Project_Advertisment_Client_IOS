@@ -7,11 +7,46 @@
 //
 
 #import "AppDelegate.h"
+#import "User.h"
+#import "Item.h"
+#import "Activity.h"
+#import "SBJson.h"
+#import "Jastor.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // connect to get json
+//    NSString *url = @"http://211.152.33.179:81/api/user/?token=user001devicetoken";
+//    NSString *url = @"http://211.152.33.179:81/api/item/?id=3";
+/*    NSString *url = @"http://211.152.33.179:81/api/activity/?type=1";
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    NSHTTPURLResponse *response = nil;
+    NSError *reserror = nil;
+    NSData *resdata = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&reserror];
+    NSMutableString *res = [[NSMutableString alloc] initWithData:resdata encoding:NSUTF8StringEncoding];
+    NSLog(@"the rest string is : %@", res);
+    
+    NSDictionary *dic = [[[SBJsonParser alloc] init] objectWithData:resdata];
+    NSLog([NSString stringWithFormat:@"%d",[dic count]]);
+    for (NSDictionary *dd in dic)
+    {
+        Activity *act = [[Activity alloc] initWithDictionary:dd];
+        //    NSLog([[act activityID] stringValue]);
+        NSLog([act activityName]);
+        NSLog([act activityDescribe]);
+        
+    }
+    */
+    // test entity
+//    User *user = [[User alloc] initWithDictionary:dic];
+//    Item *item = [[Item alloc] initWithDictionary:dic];
+
+    // init UI
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {

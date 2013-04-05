@@ -11,6 +11,10 @@
 
 @interface ExchangeCenter : UIViewController<UIScrollViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UIImageView *leftLeaf;
+
+@property (strong, nonatomic) IBOutlet UIImageView *rightLeaf;
+
 @property (strong, nonatomic) IBOutlet UIScrollView *adScrollView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *adImageView;
@@ -20,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UIView *userInfoView;
 
 @property (strong, nonatomic) IBOutlet UIView *adView;
+
 
 //@property (strong, nonatomic) IBOutlet GCNavigationBar *naviBar;
 
